@@ -1,6 +1,6 @@
 @Alltests
 Feature: Google Search
- @Google
+ @GoogleSearch
   Scenario: Open Google and verify title
     Given user navigates to Google
     Then user checks the page title
