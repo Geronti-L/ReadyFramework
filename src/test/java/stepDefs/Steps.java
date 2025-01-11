@@ -54,8 +54,8 @@ public class Steps {
 
     }
 
-    @Then("user fill out the form with all required info")
-    public void userFillOutTheFormWithAllRequiredInfo() {
+    @Then("user fills out the form with all required info")
+    public void userFillsOutTheFormWithAllRequiredInfo() {
            getDriver().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
             getDriver().findElement(By.xpath("//input[@id='name']")).click();
