@@ -47,7 +47,6 @@ public class Steps {
         else {
             System.out.println("Verification Failed - An incorrect Url is opened.");
 
-            //In case of Fail, you like to print the actual and expected URL for the record purpose
             System.out.println("Actual URL is : " + actualTitle);
             System.out.println("Expected URL is : " + title);
         }
