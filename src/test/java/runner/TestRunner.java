@@ -13,7 +13,8 @@ import org.junit.runner.RunWith;
                 "html:target/cucumber-reports.html",
                 "json:target/cucumber.json"
         },
-        publish = true
+        publish = true,
+        tags = "@Alltests"
 
 )
 

@@ -1,17 +1,20 @@
 package hooks;
 
-import io.cucumber.java.After;
-import io.cucumber.java.Before;
+import io.cucumber.java.AfterAll;
+import io.cucumber.java.BeforeAll;
+
+
 
 public class Hooks {
 
-    @Before
-    public void setUp() {
+    @BeforeAll
+    public static void setUp() {
         DriverManager.getDriver();
     }
 
-    @After
-    public void tearDown() {
+    @AfterAll
+    public static void tearDown() {
+        DriverManager.getDriver().manage().deleteAllCookies();
         DriverManager.quitDriver();
     }
 }
