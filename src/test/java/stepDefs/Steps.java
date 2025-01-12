@@ -1,6 +1,7 @@
 package stepDefs;
 
 import hooks.DriverManager;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import org.junit.jupiter.api.Assertions;
@@ -82,6 +83,52 @@ public class Steps {
     public void userWaitsSeconds(int sec) throws InterruptedException {
             Thread.sleep(sec*1000);
 
+
+    }
+
+    @Then("label for Name should be required field")
+    public void labelForNameShouldBeRequiredField() {
+//
+            WebElement isReq=getDriver().findElement(By.xpath("//label[@class='required'][.='Name']"));
+            if(isReq.isDisplayed()){
+                System.out.println("Name is marked as required field");
+            }else{
+                System.out.println("Name is not required field");
+            }
+
+    }
+
+    @Then("labels for Name, Username, Password and Email  are marked as required fields")
+    public void labelsForNameUsernamePasswordAndEmailAreMarkedAsRequiredFields() {
+        WebElement name=getDriver().findElement(By.xpath("//label[@class='required'][.='Name']"));
+        WebElement userName=getDriver().findElement(By.xpath("//label[@class='required'][.='Username']"));
+        WebElement password=getDriver().findElement(By.xpath("//label[@class='required'][.='Password']"));
+        WebElement email=getDriver().findElement(By.xpath("//label[@class='required'][.='Email']"));
+        if(name.isDisplayed()& userName.isDisplayed()& password.isDisplayed()& email.isDisplayed()){
+            System.out.println("labels for name, username,passord and email are marked as required");
+        }else{
+            System.out.println("please check labels");
+        }
+
+
+
+
+    }
+
+    @And("Confirm Password field is disabled")
+    public void confirmPasswordFieldIsDisabled() {
+
+          boolean isEnabled=getDriver().findElement(By.xpath("//input[@id='confirmPassword']")).isEnabled();
+
+          if(!isEnabled){
+              System.out.println("password confirm is disabled");
+
+          }else{
+              System.out.println("Password Confirm is enabled");
+              Assertions.fail();
+
+
+          }
 
     }
 }
