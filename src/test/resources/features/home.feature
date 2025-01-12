@@ -10,10 +10,10 @@ Feature: Google Search
 #    Given user navigates to Google
 #    Then user checks the page title
 #
-#    @UserWeb
-#    Scenario: Open a page and verify title
-#      Given user navigates to "skryabin.com/webdriver/html/basic_form.html"
-#      Then user checks the page title is "Basic form"
+    @UserWeb
+    Scenario: Open a page and verify title
+      Given user navigates to "skryabin.com/webdriver/html/basic_form.html"
+      Then user checks the page title is "Basic form"
 
 
 
@@ -21,8 +21,10 @@ Feature: Google Search
   @formfillout
   Scenario: Fill out the form
     Given user navigates to "skryabin.com/webdriver/html/quote.html"
+
     Then user fills out the form with all required info
     Then user waits 3 seconds
+
 
   @verify
   Scenario: Verify field values
