@@ -16,6 +16,7 @@ import java.io.File;
 import java.io.IOException;
 import org.openqa.selenium.OutputType;
 import java.time.Duration;
+import java.util.concurrent.TimeUnit;
 
 import static hooks.DriverManager.getDriver;
 
@@ -42,12 +43,24 @@ public class Steps {
     public void userChecksThePageTitleIs(String title) {
           String actualTitle =  getDriver().getTitle().toString();
           Assertions.assertEquals(title,actualTitle);
+          String source=getDriver().getPageSource();
+          System.out.println(source.length());
+        if (actualTitle.equals(title)){
+            System.out.println("Verification Successful - The correct Url is opened.");
+        }
+        else {
+            System.out.println("Verification Failed - An incorrect Url is opened.");
+
+            System.out.println("Actual URL is : " + actualTitle);
+            System.out.println("Expected URL is : " + title);
+        }
 
     }
 
-    @Then("user fill out the form with all required info")
-    public void userFillOutTheFormWithAllRequiredInfo() {
-//
+    @Then("user fills out the form with all required info")
+    public void userFillsOutTheFormWithAllRequiredInfo() {
+           getDriver().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
             getDriver().findElement(By.xpath("//input[@id='name']")).click();
             getDriver().findElement(By.xpath("//input[@id='firstName']")).sendKeys("john");
             getDriver().findElement(By.xpath("//input[@id='lastName']")).sendKeys("doe");
@@ -66,21 +79,6 @@ public class Steps {
             getDriver().findElement(By.xpath("//select[@name='countryOfOrigin']")).click();
             getDriver().findElement(By.xpath("//option[contains(text(),'Germany')]")).click();
             getDriver().findElement(By.xpath("//button[@id='formSubmit']")).click();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     }
 
