@@ -1,21 +1,27 @@
 package hooks;
 
-import io.cucumber.java.AfterAll;
-import io.cucumber.java.BeforeAll;
+import io.cucumber.java.*;
 
+import static hooks.DriverManager.getDriver;
+import static hooks.DriverManager.quitDriver;
 
 
 public class Hooks {
 
-    @BeforeAll
+    @Before
     public static void setUp() {
-        DriverManager.getDriver();
+      getDriver();
     }
 
-    @AfterAll
-    public static void tearDown() {
+    @After
+    public static void tearDown(Scenario scenario) {
+        if(scenario.isFailed()){
+            ScreenshotUtil.captureScreenshot(getDriver(),scenario.getName().replaceAll(" ","_"));
+        }
         DriverManager.getDriver().manage().deleteAllCookies();
-        DriverManager.quitDriver();
+        quitDriver();
+
+
     }
 }
 
