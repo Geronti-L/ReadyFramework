@@ -20,7 +20,7 @@ Feature: Google Search
   Scenario: Fill out the form
     Given user navigates to "skryabin.com/webdriver/html/quote.html"
     Then user fill out the form with all required info
-    Then user waits 3 seconds
+    Then user waits 2 seconds
 
   @verify
   Scenario: Verify field values
