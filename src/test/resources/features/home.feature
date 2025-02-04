@@ -21,7 +21,6 @@ Feature: Google Search
   @formfillout
   Scenario: Fill out the form
     Given user navigates to "skryabin.com/webdriver/html/quote.html"
-
     Then user fills out the form with all required info
     Then user waits 3 seconds
 
