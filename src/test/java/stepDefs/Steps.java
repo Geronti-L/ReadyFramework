@@ -21,7 +21,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import static hooks.DriverManager.getDriver;
 
-public class Test {
+public class Steps {
 
         @Given("user navigates to Google")
         public void userNavigatesToGoogle() {
