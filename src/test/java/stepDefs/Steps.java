@@ -15,6 +15,8 @@ import org.apache.commons.io.FileUtils;
 import java.io.File;
 import java.io.IOException;
 import org.openqa.selenium.OutputType;
+import pages.LandingPage;
+
 import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -61,6 +63,7 @@ public class Steps {
 
     @Then("user fills out the form with all required info")
     public void userFillsOutTheFormWithAllRequiredInfo() {
+        
            getDriver().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
             getDriver().findElement(By.xpath("//input[@id='name']")).click();
