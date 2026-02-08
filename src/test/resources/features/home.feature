@@ -9,7 +9,7 @@ Feature: Google Search
 #  Scenario: Open Google and verify title
 #    Given user navigates to Google
 #    Then user checks the page title
-#helloGitlab
+#
     @UserWeb
     Scenario: Open a page and verify title
       Given user navigates to "skryabin.com/webdriver/html/basic_form.html"
@@ -21,6 +21,7 @@ Feature: Google Search
   @formfillout
   Scenario: Fill out the form
     Given user navigates to "skryabin.com/webdriver/html/quote.html"
+
     Then user fills out the form with all required info
     Then user waits 3 seconds
 

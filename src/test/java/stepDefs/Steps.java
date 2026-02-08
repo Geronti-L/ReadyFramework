@@ -19,7 +19,6 @@ import pages.LandingPage;
 
 import java.time.Duration;
 import java.util.concurrent.TimeUnit;
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import static hooks.DriverManager.getDriver;
 
@@ -29,7 +28,6 @@ public class Steps {
         public void userNavigatesToGoogle() {
             getDriver().get("https://www.google.com");
             System.out.println("Navigated to Google");
-
         }
 
         @Then("user checks the page title")
